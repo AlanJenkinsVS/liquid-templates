@@ -1,0 +1,21 @@
+{% comment %}
+
+This is a comment block
+
+{% endcomment %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {% include 'header' %}
+        {% include 'style' %}
+    </head>
+    <body>
+        <div class="flex flex-col h-screen">
+            <div id="content" class="max-w-lg mx-auto flex-1">
+                {% block content %}{% endblock %}
+            </div>
+
+            {% include 'footer' %}
+        </div>
+    </body>
+</html>

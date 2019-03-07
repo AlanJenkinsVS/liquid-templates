@@ -1,0 +1,18 @@
+{% extends "layout/default" %}
+
+{% block content %}
+	<div class="leading-loose">
+		<h1>{{ document.title }}</h1>
+		<p>{{ document.content }}</p>
+	</div>
+
+	{% if products %}
+		Total Products: {{ products | size }}
+
+		<ul id="products" class="list-reset flex">
+		{% for product in products %}
+			{% include 'components/product_card' %}
+		{% endfor %}
+		</ul>
+	{% endif %}
+{% endblock %}
