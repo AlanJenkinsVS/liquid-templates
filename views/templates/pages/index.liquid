@@ -2,17 +2,17 @@
 
 {% block content %}
 	<div class="leading-loose">
-		<h1>{{ document.title }}</h1>
+		{% comment %} <h1>{{ document.title }}</h1> {% endcomment %}
 		<p>{{ document.content }}</p>
 	</div>
 
 	{% if products %}
-		Total Products: {{ products | size }}
+		<h2 class="font-thin my-2">Found {{ products | size }} products</h2>
 
-		<ul id="products" class="list-reset flex">
+		<div class="list-reset flex">
 		{% for product in products %}
 			{% include 'components/product_card' %}
 		{% endfor %}
-		</ul>
+		</div>
 	{% endif %}
 {% endblock %}

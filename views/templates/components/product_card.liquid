@@ -1,8 +1,10 @@
-<div class="m-2 bg-grey-lighter rounded p-4 border border-grey">
-  <h2>{{ product.name }}</h2>
-  Only {{ product.price | price }}
+<div class="m-2 bg-grey-lighter rounded p-4 border border-grey w-1/4">
+  <h2 class="mb-4 font-thin">{{ product.name }}</h2>
+  <div>Only {{ product.price | price }}</div>
 
-  {{ product.description | prettyprint | paragraph }}
+  <div class="leading-normal text-sm">
+    {{ product.description | prettyprint | paragraph }}
 
-  {{ 'it rocks!' | paragraph }}
+    {{ 'it rocks!' | paragraph }}
+  </div>
 </div>

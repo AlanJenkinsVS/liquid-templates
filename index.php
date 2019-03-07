@@ -18,6 +18,7 @@ try {
   $viewData["document"] = [
     "title" => "Nginx, PHP56-FPM and Liquid Templates",
     "content" => "Some intro content",
+    "canonical" => $_SERVER['REQUEST_URI'],
     "copyright" => "VS Store. All Rights Reserved."
   ];
 
@@ -28,8 +29,8 @@ try {
   ];
 
   $viewData["products"][] = [
-    "name" => "T-Shirt",
-    "price" => "8.99",
+    "name" => "Big Blue Jumper",
+    "price" => "23.99",
     "description" => "my product"
   ];
 
