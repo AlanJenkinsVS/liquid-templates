@@ -8,11 +8,11 @@
     ],
     "require": {
         "liquid/liquid": "^1.4",
-		"php": ">= 5.3"
+        "php": ">= 5.3"
     },
     "autoload": {
 		"psr-4": {
-			"Liquid": "vendor/Liquid"
+            "Liquid\\": "vendor/Liquid"
 		}
 	}
 }
