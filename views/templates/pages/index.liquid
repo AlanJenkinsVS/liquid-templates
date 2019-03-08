@@ -11,7 +11,7 @@
 
 		<div class="list-reset flex">
 		{% for product in products %}
-			{% include 'components/product_card' %}
+			{% include 'components/product_card', item: product, quick_buy: true %}
 		{% endfor %}
 		</div>
 	{% endif %}

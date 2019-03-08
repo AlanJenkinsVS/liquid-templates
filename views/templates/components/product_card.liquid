@@ -1,9 +1,14 @@
-<div class="m-2 bg-grey-lighter rounded p-4 border border-grey w-1/4">
-  <h2 class="mb-4 font-thin">{{ product.name }}</h2>
-  <div>Only {{ product.price | price }}</div>
+<div class="m-2 bg-grey-lighter rounded p-4 border border-grey w-1/4 relative">
+  <h2 class="mb-4 font-thin">{{ item.name }}</h2>
+
+  {% if quick_buy %}
+    {% include 'components/quick_buy' %}
+  {% endif %}
+
+  <div class="{% if quick_buy %} pt-12 {% endif %}">Only {{ item.price | price }}</div>
 
   <div class="leading-normal text-sm">
-    {{ product.description | prettyprint | paragraph }}
+    {{ item.description | prettyprint | paragraph }}
 
     {{ 'it rocks!' | paragraph }}
   </div>
