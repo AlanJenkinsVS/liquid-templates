@@ -1,18 +1,7 @@
 {% extends "layout/default" %}
 
 {% block content %}
-	<div class="leading-loose">
-		{% comment %} <h1>{{ document.title }}</h1> {% endcomment %}
-		<p>{{ document.content }}</p>
-	</div>
 
-	{% if products %}
-		<h2 class="font-thin my-2">Found {{ products | size }} products</h2>
-
-		<div class="list-reset flex">
-		{% for product in products %}
-			{% include 'components/product_card', item: product, quick_buy: true %}
-		{% endfor %}
-		</div>
-	{% endif %}
+	{% include 'components/breadcrumb', breadcrumb: breadcrumb %}
+	{% include 'components/product_list', products: products%}
 {% endblock %}

@@ -1,20 +1,7 @@
+{% assign nav_link = "-mb-px p-4 border-b border-transparent no-underline text-black hover:border-black" %}
+
 <input type="text" name="" id="" class="border p-2 px-3 rounded">
 
-<nav class="">
-  <div class="flex w-full max-w-xl mx-auto">
-    <a href="#" class="p-4 no-underline text-grey-darkest hover:bg-grey-lighter">New</a>
-    <a href="#" class="p-4 no-underline text-grey-darkest hover:bg-grey-lighter">Mens</a>
-    <a href="#" class="p-4 no-underline text-grey-darkest hover:bg-grey-lighter">Womens</a>
-    <a href="#" class="p-4 no-underline text-grey-darkest hover:bg-grey-lighter">Kids</a>
-    <a href="#" class="p-4 no-underline text-grey-darkest hover:bg-grey-lighter">Brands</a>
-    <a href="#" class="p-4 no-underline text-grey-darkest hover:bg-grey-lighter">Sakes</a>
-  </div>
-</nav>
+{% include 'components/nav', nav: nav %}
 
-<div class="bg-grey-light p-2 text-sm">
-  <div class="flex w-full max-w-xl mx-auto justify-between">
-    <div>FREE UK DELIVERY ON ORDERS OVER £100</div>
-    <div>WORLDWIDE SHIPPING AVAILABLE*</div>
-    <div>SAME DAY DISPATCH BEFORE 3PM MON-FRI</div>
-  </div>
-</div>
+{% include 'components/promo_unit', promo_unit: sliver_banner %}

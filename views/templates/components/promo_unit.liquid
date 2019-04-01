@@ -1,0 +1,7 @@
+{% if promo_unit.type == "sliver" %}
+  {% include 'components/promo_units/sliver', promo_units: promo_unit.items %}
+{% else if promo_unit.type == 'product' %}
+  {% include 'components/promo_units/product', promo_units: promo_unit.items %}
+{% else %}
+  {% include 'components/promo_units/default', promo_units: promo_unit.items %}
+{% endif %}

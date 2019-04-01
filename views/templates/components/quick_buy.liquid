@@ -1,3 +1,8 @@
-<div class="absolute pin-l pin-r">
-  <button class="p-2 bg-grey-darker text-grey-lightest">Quick Buy</button>
-</div>
+{% assign css_quick_buy = "p-2 bg-grey-darker text-grey-lightest hover:bg-grey-dark" %}
+{% assign css_quick_buy_position = "my-2" %}
+
+{%- if quick_buy -%}
+  <div class="{{ css_quick_buy_position }}">
+    <button class="{{ css_quick_buy }}">Quick Buy</button>
+  </div>
+{%- endif -%}

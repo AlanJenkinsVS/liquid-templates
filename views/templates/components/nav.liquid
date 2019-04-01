@@ -1,0 +1,31 @@
+{% if nav.css.nav %}
+  {% assign css_nav = nav.css.nav %}
+{% else %}
+  {% assign css_nav = "border-b border-grey-light" %}
+{% endif %}
+
+{% if nav.css.container %}
+  {% assign css_nav_container = nav.css.container %}
+{% else %}
+  {% assign css_nav_container = "list-reset flex w-full max-w-xl mx-auto justify-between relative" %}
+{% endif %}
+
+{% if nav.css.link %}
+  {% assign css_nav_link = nav.css.link %}
+{% else %}
+  {% assign css_nav_link = "block -mb-px flex-1 text-center p-4 border-b border-transparent no-underline text-black hover:border-black" %}
+{% endif %}
+
+{% if nav.items %}
+  <nav class="{{ css_nav }}">
+    <ul class="{{ css_nav_container }}">
+      {% for item in nav.items %}
+        <li class="relative group">
+          <a href="{{ item.url }}" class="{{ css_nav_link }}">{{ item.text }}</a>
+
+          {% comment %} {% include 'components/nav/sub_menu', items: item.sub_items, depth: 3 %} {% endcomment %}
+        </li>
+      {%- endfor -%}
+    <ul>
+  </nav>
+{% endif %}

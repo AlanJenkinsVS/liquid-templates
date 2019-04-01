@@ -1,0 +1,38 @@
+{%- if breadcrumb.css.breadcrumb -%}
+  {% assign css_breadcrumb = breadcrumb.css.breadcrumb %}
+{%- else -%}
+  {% assign css_breadcrumb = "flex items-center my-2 text-sm" %}
+{%- endif -%}
+
+{%- if breadcrumb.css.item -%}
+  {% assign css_breadcrumb_item = breadcrumb.css.item %}
+{%- else -%}
+  {% assign css_breadcrumb_item = "p-2 text-grey-dark" %}
+{%- endif -%}
+
+{%- if breadcrumb.css.link -%}
+  {% assign css_breadcrumb_link = breadcrumb.css.link %}
+{%- else -%}
+  {% assign css_breadcrumb_link = "p-2 text-grey-darker no-underline hover:text-grey-dark hover:underline" %}
+{%- endif -%}
+
+{%- if breadcrumb.css.divider -%}
+  {% assign css_breadcrumb_divider = breadcrumb.css.divider %}
+{%- else -%}
+  {% assign css_breadcrumb_divider = "text-grey block" %}
+{%- endif -%}
+
+{% if breadcrumb.items %}
+  <div class="{{ css_breadcrumb }}">
+    {%- for item in breadcrumb.items -%}
+      {%- if item.url -%}
+        <a href="{{ item.url }}" class="{{ css_breadcrumb_link }}">{{ item.text }}</a>
+        {% unless forloop.last == true %}
+        <span class="{{ css_breadcrumb_divider }}">></span>
+        {% endunless %}
+      {%- else -%}
+        <span class="{{ css_breadcrumb_item }}">{{ item.text }}</span>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{% endif %}

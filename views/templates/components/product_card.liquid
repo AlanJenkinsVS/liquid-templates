@@ -1,15 +1,29 @@
-<div class="m-2 bg-grey-lighter rounded p-4 border border-grey w-1/4 relative">
-  <h2 class="mb-4 font-thin">{{ item.name }}</h2>
+{% assign product_card = "m-2 w-1/4 border border-transparent hover:border-grey-light" %}
+{% assign product_card__brand = "mb-4 font-normal text-sm uppercase" %}
+{% assign product_card__name = "mb-4 font-normal text-sm text-grey-darkest" %}
+{% assign product_description = "p-2 flex flex-col relative text-center" %}
+{%- assign product_link = "no-underline text-black hover:underline" -%}
 
-  {% if quick_buy %}
+{% comment %}
+  Do I need to be able to see the css classes or properties here??
+  I also need to be able to overwrite them
+{% endcomment %}
+
+<div class="{{ product_card }}">
+  {%- if item.image -%}
+    <a href="{{ item.url }}" class="{{ product_image_url }}">
+      <img src="views/images/{{ item.image }}" />
+    </a>
+  {%- endif -%}
+
+  <div class="{{ product_description }}">
+    <a href="{{ item.url }}" class="{{ product_link }}">
+      <h2 class="{{ product_card__brand }}">{{ item.brand }}</h2>
+      <h3 class="{{ product_card__name }}">{{ item.name }}</h3>
+    </a>
+
     {% include 'components/quick_buy' %}
-  {% endif %}
 
-  <div class="{% if quick_buy %} pt-12 {% endif %}">Only {{ item.price | price }}</div>
-
-  <div class="leading-normal text-sm">
-    {{ item.description | prettyprint | paragraph }}
-
-    {{ 'it rocks!' | paragraph }}
+    <div>Only {{ item.price | price }}</div>
   </div>
 </div>

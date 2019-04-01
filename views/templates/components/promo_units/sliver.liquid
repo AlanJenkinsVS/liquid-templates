@@ -1,0 +1,50 @@
+{%- if promo_units.css.sliver -%}
+  {% assign css_sliver = promo_units.css.sliver %}
+{%- else -%}
+  {% assign css_sliver = "text-sm border-b" %}
+{%- endif -%}
+
+{% asign css_slive r= promo_units.css.sliver? promo_units.css.sliver : 'text-sm border-b' %}
+
+{%- if promo_units.css.container -%}
+  {% assign css_sliver__container = promo_units.css.container %}
+{%- else -%}
+  {% assign css_sliver__container = "flex w-full max-w-xl mx-auto justify-between" %}
+{%- endif -%}
+
+{%- if promo_units.css.link -%}
+  {% assign css_sliver_link = promo_units.css.link %}
+{%- else -%}
+  {% assign css_sliver_link = "flex items-center p-4 no-underline text-black hover:underline" %}
+{%- endif -%}
+
+{%- if promo_units.css.content -%}
+  {% assign css_sliver_content = promo_units.css.content %}
+{%- else -%}
+  {% assign css_sliver_content = "flex items-center p-4 text-black" %}
+{%- endif -%}
+
+<div class="{{ css_sliver }}">
+  <div class="{{ css_sliver__container }}">
+    {% for promo_unit in promo_units %}
+      {% capture promo_content %}
+        {%- if promo_unit.icon -%}
+          <i class="ico icon-van" aria-label="link"></i>
+          {{ promo_unit.icon }}
+        {%- endif -%}
+        {{ promo_unit.text }}
+      {% endcapture %}
+
+      {% if promo_unit.url %}
+        <a class="{{ css_sliver_link }}" href="{{ promo_unit.url }}">
+        {''}
+        {{ promo_content }}
+        </a>
+      {% else %}
+        <div class="{{ css_sliver_content }}">
+          {{ promo_content }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

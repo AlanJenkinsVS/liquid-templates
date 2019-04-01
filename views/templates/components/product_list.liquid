@@ -1,0 +1,9 @@
+{% if products %}
+  <h2 class="font-thin my-2">Found {{ products | size }} products</h2>
+
+  <div class="list-reset flex">
+  {% for product in products %}
+    {% include 'components/product_card', item: product, quick_buy: true %}
+  {% endfor %}
+  </div>
+{% endif %}

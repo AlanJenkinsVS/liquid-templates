@@ -1,0 +1,14 @@
+{%- if item.items -%}
+  <ul class="hidden absolute list-reset group-hover:visible">
+    {%- for sub_item in item.items -%}
+      <li>
+        <a href="{{ text.url }}" class="{{ css_nav_link }}">{{ item.text }}</a>
+        {% comment %} 
+          {% raw %}
+            {%- include 'components/nav/sub_menu', item: sub_item -%}
+          {% endraw %}
+        {% endcomment %}
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
